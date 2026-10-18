@@ -1,0 +1,4 @@
+# Wi-Fi passwords and API keys live in secrets.h: never commit it.
+# Copy secrets.example.h to secrets.h in the same sketch folder and edit the copy.
+secrets.h
+build/

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!--
+  WSU-COS 209 The Circuit-to-Cloud Workshop
+  Practical 1-12: Lab Portfolio  |  home page (edit the placeholders in [square brackets])
+  (c) 2026 Wellspring University, Faculty of Computing. For registered WSU-COS 209 students.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>Lab Portfolio | WSU-COS 209</title>
+  <meta name="description" content="WSU-COS 209 lab portfolio: twelve practicals from logic gates to a cloud data logger.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="inner">
+      <a class="brand" href="index.html">
+        [Your Name] &amp; [Partner Name]
+        <small>WSU-COS 209 Lab Portfolio</small>
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="#practicals">Practicals</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <h1>From circuits to the cloud</h1>
+    <p class="lead">
+      This portfolio records our work in WSU-COS 209 The Circuit-to-Cloud Workshop:
+      twelve practicals that start with logic gates on a breadboard and end with an
+      ESP32 sending sensor readings to our own web server.
+    </p>
+
+    <section aria-labelledby="practicals">
+      <h2 id="practicals">Practicals</h2>
+      <!-- Each card links to one page in pages/. Make a new page by copying pages/template.html. -->
+      <ul class="grid">
+        <li class="card"><h3><a href="pages/p01.html">P1 Number systems</a></h3><p>Binary, hex, BCD, Gray code and two's complement, with a live converter.</p><span class="tag">Uno + web</span></li>
+        <li class="card"><h3><a href="pages/p02.html">P2 Logic gates</a></h3><p>Testing 74HC00/08/32/86 gates and recording truth tables.</p><span class="tag">Uno</span></li>
+        <li class="card"><h3><a href="pages/p03.html">P3 Karnaugh maps</a></h3><p>Simplifying a prime-digit detector and building it from NAND gates.</p><span class="tag">Uno</span></li>
+        <li class="card"><h3><a href="pages/p04.html">P4 Adders &amp; comparators</a></h3><p>Exhaustive tests of the 74HC283 and 74HC85.</p><span class="tag">Uno + web</span></li>
+        <li class="card"><h3><a href="pages/p05.html">P5 Decoders &amp; displays</a></h3><p>74HC138, 74HC151 and a 7-segment counter.</p><span class="tag">Uno</span></li>
+        <li class="card"><h3><a href="pages/p06.html">P6 Latches &amp; flip-flops</a></h3><p>Switch bounce, an SR latch and the 74HC74 D flip-flop.</p><span class="tag">Uno + web</span></li>
+        <li class="card"><h3><a href="pages/p07.html">P7 Counters &amp; registers</a></h3><p>74HC161 counter, 74HC595 LED patterns and a tri-state bus.</p><span class="tag">Uno + web</span></li>
+        <li class="card"><h3><a href="pages/p08.html">P8 State machines</a></h3><p>A pedestrian crossing as a non-blocking finite state machine.</p><span class="tag">Uno + web</span></li>
+        <li class="card"><h3><a href="pages/p09.html">P9 Sensors &amp; Web Serial</a></h3><p>A light sensor streamed as JSON into a browser dashboard.</p><span class="tag">Uno + web</span></li>
+        <li class="card"><h3><a href="pages/p10.html">P10 ESP32 web server</a></h3><p>Controlling an LED from a phone over Wi-Fi.</p><span class="tag">ESP32</span></li>
+        <li class="card"><h3><a href="pages/p11.html">P11 A REST API</a></h3><p>JSON endpoints and a polling dashboard on the ESP32.</p><span class="tag">ESP32</span></li>
+        <li class="card"><h3><a href="pages/p12.html">P12 Cloud logger</a></h3><p>Posting readings to our own Flask or Node server and database.</p><span class="tag">ESP32 + server</span></li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="about" class="card">
+      <h2 id="about">About us</h2>
+      <p>[Your Name] and [Partner Name], [Programme, e.g. BSc Computer Science], year [1/2].</p>
+      <p>Lab group: [Group letter]. Bench: [Bench number].</p>
+      <p class="hint">Replace every placeholder in square brackets before you submit.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="inner">
+      <p>WSU-COS 209 The Circuit-to-Cloud Workshop &middot; Wellspring University, Faculty of Computing &middot; 2026</p>
+    </div>
+  </footer>
+</body>
+</html>

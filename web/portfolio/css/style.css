@@ -1,0 +1,434 @@
+/*
+  WSU-COS 209 The Circuit-to-Cloud Workshop
+  Practical 1-12: Lab Portfolio  |  shared stylesheet (mobile-first)
+  (c) 2026 Wellspring University, Faculty of Computing. For registered WSU-COS 209 students.
+
+  How this file is organised:
+    1. Design tokens (CSS variables) - change colours and spacing here only.
+    2. Base elements (body, headings, links, code).
+    3. Layout: header, nav (Flexbox), main, footer.
+    4. Reusable components: .card, .grid, .btn, forms, tables, .note.
+    5. Larger screens (media queries). We design for phones FIRST and add rules
+       for wider screens afterwards ("mobile-first").
+*/
+
+/* ---------- 1. Design tokens ---------- */
+:root {
+  --c-bg: #f7f8fa;          /* page background */
+  --c-surface: #ffffff;     /* cards, header */
+  --c-text: #1b1f24;        /* body text: contrast 15:1 on --c-bg */
+  --c-muted: #4a5360;       /* secondary text: contrast 7.6:1 on white */
+  --c-border: #d4d9e0;
+  --c-brand: #0b4f8a;       /* Wellspring blue: contrast 8.3:1 on white */
+  --c-brand-ink: #ffffff;   /* text on top of --c-brand */
+  --c-accent: #b3541e;      /* used sparingly for highlights */
+  --c-ok: #1d6b35;
+  --c-bad: #a3231a;
+  --c-code-bg: #eef1f5;
+  --c-led-on: #d62d20;
+  --c-led-off: #e3e6ea;
+
+  --radius: 8px;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2.5rem;
+  --max-width: 60rem;
+
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-mono: ui-monospace, "Cascadia Mono", Consolas, "Liberation Mono", monospace;
+}
+
+/* ---------- 2. Base elements ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* width includes padding and border (see P3) */
+}
+
+html {
+  font-size: 100%; /* respect the user's browser font size */
+}
+
+body {
+  margin: 0;
+  background: var(--c-bg);
+  color: var(--c-text);
+  font-family: var(--font-body);
+  line-height: 1.55;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  margin: var(--space-4) 0 var(--space-2);
+}
+
+h1 {
+  font-size: 1.75rem;
+}
+
+h2 {
+  font-size: 1.35rem;
+}
+
+h3 {
+  font-size: 1.1rem;
+}
+
+p {
+  margin: 0 0 var(--space-3);
+}
+
+a {
+  color: var(--c-brand);
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--c-accent);
+}
+
+:focus-visible {
+  outline: 3px solid var(--c-accent);
+  outline-offset: 2px;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: var(--font-mono);
+  font-size: 0.95em;
+}
+
+code {
+  background: var(--c-code-bg);
+  padding: 0 0.25em;
+  border-radius: 4px;
+}
+
+pre {
+  background: var(--c-code-bg);
+  padding: var(--space-3);
+  border-radius: var(--radius);
+  overflow-x: auto; /* long lines scroll inside the box, not the page */
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Visible only to screen readers (used for extra labels). */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Lets keyboard users jump past the navigation. */
+.skip-link {
+  position: absolute;
+  left: var(--space-2);
+  top: -3rem;
+  background: var(--c-surface);
+  padding: var(--space-2) var(--space-3);
+  z-index: 10;
+}
+
+.skip-link:focus {
+  top: var(--space-2);
+}
+
+/* ---------- 3. Layout ---------- */
+.site-header {
+  background: var(--c-brand);
+  color: var(--c-brand-ink);
+}
+
+.site-header .inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column; /* phone: brand above nav */
+  gap: var(--space-2);
+}
+
+.brand {
+  color: var(--c-brand-ink);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.brand small {
+  display: block;
+  font-weight: 400;
+  font-size: 0.85rem;
+}
+
+.brand:hover,
+.brand:focus-visible {
+  color: var(--c-brand-ink);
+  text-decoration: underline;
+}
+
+/* The navigation is a Flexbox row that wraps onto several lines on phones. */
+.site-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-3);
+}
+
+.site-nav a {
+  color: var(--c-brand-ink);
+  text-decoration: none;
+  display: inline-block;
+  padding: var(--space-1) 0;
+  border-bottom: 2px solid transparent;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible,
+.site-nav a[aria-current="page"] {
+  color: var(--c-brand-ink);
+  border-bottom-color: var(--c-brand-ink);
+}
+
+main {
+  display: block;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-3);
+}
+
+.site-footer {
+  border-top: 1px solid var(--c-border);
+  color: var(--c-muted);
+  font-size: 0.9rem;
+}
+
+.site-footer .inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-3);
+}
+
+/* ---------- 4. Components ---------- */
+.lead {
+  font-size: 1.1rem;
+  color: var(--c-muted);
+}
+
+.card {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+}
+
+.card h2,
+.card h3 {
+  margin-top: 0;
+}
+
+/* A list of cards: one column on phones, more columns on wider screens. */
+.grid {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-4);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+.tag {
+  display: inline-block;
+  font-size: 0.8rem;
+  padding: 0 var(--space-2);
+  border-radius: 999px;
+  background: var(--c-code-bg);
+  color: var(--c-muted);
+}
+
+.btn {
+  display: inline-block;
+  font: inherit;
+  min-height: 44px; /* big enough to tap on a phone */
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius);
+  border: 2px solid var(--c-brand);
+  background: var(--c-brand);
+  color: var(--c-brand-ink);
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #083b68;
+}
+
+.btn.secondary {
+  background: var(--c-surface);
+  color: var(--c-brand);
+}
+
+.btn.secondary:hover {
+  background: var(--c-code-bg);
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: var(--space-3) 0;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: var(--space-1);
+}
+
+input[type="number"],
+input[type="text"],
+select,
+textarea {
+  font: inherit;
+  width: 100%;
+  max-width: 20rem;
+  min-height: 44px;
+  padding: var(--space-2);
+  border: 2px solid var(--c-muted);
+  border-radius: var(--radius);
+  background: var(--c-surface);
+  color: var(--c-text);
+}
+
+textarea {
+  max-width: 100%;
+}
+
+.hint {
+  color: var(--c-muted);
+  font-size: 0.9rem;
+}
+
+.error {
+  color: var(--c-bad);
+  font-weight: 600;
+}
+
+.ok {
+  color: var(--c-ok);
+  font-weight: 600;
+}
+
+/* Tables: wrap them in .table-wrap so wide tables scroll on phones. */
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  border-collapse: collapse;
+  background: var(--c-surface);
+  margin: 0 0 var(--space-3);
+}
+
+caption {
+  text-align: left;
+  font-weight: 600;
+  padding: var(--space-2) 0;
+}
+
+th,
+td {
+  border: 1px solid var(--c-border);
+  padding: var(--space-2) var(--space-3);
+  text-align: center;
+}
+
+thead th {
+  background: var(--c-code-bg);
+}
+
+.note {
+  border-left: 4px solid var(--c-brand);
+  background: var(--c-surface);
+  padding: var(--space-3);
+  margin: var(--space-3) 0;
+}
+
+.note.warn {
+  border-left-color: var(--c-accent);
+}
+
+/* Output list used by the P1 converter: label on the left, value on the right. */
+.results {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2);
+}
+
+.results div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-2);
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius);
+  padding: var(--space-2) var(--space-3);
+}
+
+.results dt {
+  font-weight: 600;
+}
+
+.results dd {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+}
+
+/* ---------- 5. Larger screens ---------- */
+@media (min-width: 600px) {
+  .site-header .inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  main {
+    padding: var(--space-4) var(--space-3);
+  }
+}

@@ -1,0 +1,94 @@
+/*
+  WSU-COS 209 The Circuit-to-Cloud Workshop
+  Practical 7: Counters and registers  |  styles for pattern-editor.html
+  (c) 2026 Wellspring University, Faculty of Computing. For registered WSU-COS 209 students.
+*/
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.controls select {
+  width: auto;
+  min-width: 12rem;
+}
+
+.grid-editor th,
+.grid-editor td {
+  padding: 0.15rem;
+  min-width: 2rem;
+}
+
+.grid-editor th[scope="row"] {
+  font-family: var(--font-mono);
+  padding: 0 var(--space-2);
+}
+
+.grid-editor tfoot td,
+.grid-editor .hex {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+/* The checkboxes are drawn as round LEDs, but they stay real checkboxes
+   so they work with the keyboard and screen readers. */
+.grid-editor input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1.6rem;
+  height: 1.6rem;
+  margin: 0.15rem;
+  border-radius: 50%;
+  border: 2px solid var(--c-muted);
+  background: var(--c-led-off);
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+.grid-editor input[type="checkbox"]:checked {
+  background: var(--c-led-on);
+  border-color: #8f1d14;
+}
+
+.grid-editor input[type="checkbox"]:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+.grid-editor td.current {
+  background: #fff1c2;
+}
+
+#command {
+  max-width: 100%;
+  font-family: var(--font-mono);
+}
+
+.preview {
+  display: flex;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  background: #1b1f24;
+  border-radius: var(--radius);
+  width: max-content;
+  max-width: 100%;
+}
+
+.preview span {
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 50%;
+  background: #3a2a2a;
+}
+
+.preview span.on {
+  background: var(--c-led-on);
+  box-shadow: 0 0 0.6rem var(--c-led-on);
+}
+
+.frame-text {
+  font-family: var(--font-mono);
+}

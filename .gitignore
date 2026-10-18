@@ -1,0 +1,7 @@
+secrets.h
+*.db
+__pycache__/
+node_modules/
+.venv/
+.DS_Store
+build/

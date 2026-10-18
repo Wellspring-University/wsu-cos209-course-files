@@ -1,0 +1,50 @@
+/*
+  WSU-COS 209 The Circuit-to-Cloud Workshop
+  Practical 9: Sensors and Web Serial  |  styles for dashboard.html
+  (c) 2026 Wellspring University, Faculty of Computing. For registered WSU-COS 209 students.
+*/
+
+.readings {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+  margin: var(--space-3) 0;
+}
+
+@media (min-width: 700px) {
+  .readings {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.stat .big {
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  margin: 0;
+}
+
+meter {
+  width: 100%;
+  height: 1.5rem;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius);
+}
+
+.raw {
+  max-height: 12rem;
+  overflow-y: auto;
+  min-height: 3rem;
+}
+
+#support ul {
+  margin: 0;
+}

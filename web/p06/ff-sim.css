@@ -1,0 +1,65 @@
+/*
+  WSU-COS 209 The Circuit-to-Cloud Workshop
+  Practical 6: Latches and flip-flops  |  styles for ff-sim.html
+  (c) 2026 Wellspring University, Faculty of Computing. For registered WSU-COS 209 students.
+*/
+
+.sim {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+@media (min-width: 700px) {
+  .sim {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+.btn[aria-pressed="true"] {
+  background: var(--c-ok);
+  border-color: var(--c-ok);
+}
+
+.leds {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.led-box {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 1.2rem;
+}
+
+.led {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--c-led-off);
+  border: 2px solid var(--c-muted);
+}
+
+.led.on {
+  background: var(--c-led-on);
+  box-shadow: 0 0 0.75rem var(--c-led-on);
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius);
+}
+
+.log {
+  max-height: 14rem;
+  overflow-y: auto;
+  min-height: 3rem;
+}

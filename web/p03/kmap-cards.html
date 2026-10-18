@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!--
+  WSU-COS 209 The Circuit-to-Cloud Workshop
+  Practical 3: Karnaugh maps  |  CSS box model + Flexbox exercise (K-map group cards)
+  (c) 2026 Wellspring University, Faculty of Computing. For registered WSU-COS 209 students.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>Practical 3: K-map groups | WSU-COS 209</title>
+  <link rel="stylesheet" href="../portfolio/css/style.css">
+  <link rel="stylesheet" href="kmap.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="inner">
+      <a class="brand" href="../portfolio/index.html">WSU-COS 209<small>Practical 3 example</small></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="../portfolio/index.html">Portfolio</a></li>
+          <li><a href="kmap-cards.html" aria-current="page">P3 K-map cards</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <h1>Practical 3: K-map groups as cards</h1>
+    <p class="lead">
+      F(D,C,B,A) = 1 for the prime BCD digits 2, 3, 5 and 7. Codes 10 to 15 never occur,
+      so they are "don't care" (X) and we may use them to make bigger groups.
+    </p>
+
+    <section aria-labelledby="map-heading">
+      <h2 id="map-heading">The Karnaugh map</h2>
+      <div class="table-wrap">
+        <table class="kmap">
+          <caption>K-map of F. Rows are DC, columns are BA, both in Gray-code order.</caption>
+          <thead>
+            <tr><th scope="col">DC \ BA</th><th scope="col">00</th><th scope="col">01</th><th scope="col">11</th><th scope="col">10</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">00</th><td>0</td><td>0</td><td class="g1">1</td><td class="g1">1</td></tr>
+            <tr><th scope="row">01</th><td>0</td><td class="g2">1</td><td class="g2">1</td><td>0</td></tr>
+            <tr><th scope="row">11</th><td>X</td><td class="g2">X</td><td class="g2">X</td><td>X</td></tr>
+            <tr><th scope="row">10</th><td>0</td><td>0</td><td class="g1">X</td><td class="g1">X</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="hint">Blue cells form group 1, orange cells form group 2 (the colour is a hint only; the cards below say the same in words).</p>
+    </section>
+
+    <section aria-labelledby="groups-heading">
+      <h2 id="groups-heading">The groups</h2>
+      <!-- .cards is a Flexbox container: the cards sit side by side when there is room
+           and wrap onto new lines on a narrow phone screen. -->
+      <ul class="cards">
+        <li class="kcard g1-card">
+          <h3>Group 1: B&middot;C'</h3>
+          <p>Cells 2, 3, 10, 11 (a quad that uses two don't-cares).</p>
+          <p>B is always 1 and C is always 0 inside the group.</p>
+        </li>
+        <li class="kcard g2-card">
+          <h3>Group 2: C&middot;A</h3>
+          <p>Cells 5, 7, 13, 15 (a quad that uses two don't-cares).</p>
+          <p>C is always 1 and A is always 1 inside the group.</p>
+        </li>
+        <li class="kcard result-card">
+          <h3>Result</h3>
+          <p><strong>F = B&middot;C' + C&middot;A</strong></p>
+          <p>Built from four NAND gates of one 74HC00.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="box-heading">
+      <h2 id="box-heading">Exercise: the box model</h2>
+      <p>Every card above is a box made of four layers. Open DevTools (F12), select a card and
+        find these numbers in the "Computed" box diagram:</p>
+      <div class="box-demo" aria-hidden="true">
+        <div class="layer margin">margin 8px
+          <div class="layer border">border 2px
+            <div class="layer padding">padding 16px
+              <div class="layer content">content</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ol>
+        <li>Change <code>padding</code> in <code>kmap.css</code> to <code>2rem</code>. What happens to the card size?</li>
+        <li>Remove <code>box-sizing: border-box</code> from <code>style.css</code>. Why do the cards now overflow?</li>
+        <li>Change <code>justify-content</code> on <code>.cards</code> to <code>center</code>, then <code>space-between</code>.</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="inner">
+      <p>WSU-COS 209 The Circuit-to-Cloud Workshop &middot; Wellspring University, Faculty of Computing &middot; 2026</p>
+    </div>
+  </footer>
+</body>
+</html>

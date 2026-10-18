@@ -1,0 +1,83 @@
+/*
+  WSU-COS 209 The Circuit-to-Cloud Workshop
+  Practical 8: State machines  |  styles for fsm.html
+  (c) 2026 Wellspring University, Faculty of Computing. For registered WSU-COS 209 students.
+*/
+
+.fsm-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+@media (min-width: 800px) {
+  .fsm-layout {
+    grid-template-columns: 1fr 1.4fr;
+  }
+}
+
+.lights {
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
+}
+
+.signal {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  background: #1b1f24;
+  padding: var(--space-2);
+  border-radius: var(--radius);
+}
+
+.lamp {
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+  background: #3b3f45;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.65rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #8a9099;
+}
+
+.walk-signal .lamp {
+  border-radius: 6px;
+  width: 4rem;
+}
+
+/* A lamp with the class "on" is lit in its own colour. */
+.lamp.red.on,
+.lamp.dont.on {
+  background: #e0301e;
+  color: #ffffff;
+  box-shadow: 0 0 1rem #e0301e;
+}
+
+.lamp.amber.on {
+  background: #f5a623;
+  box-shadow: 0 0 1rem #f5a623;
+}
+
+.lamp.green.on,
+.lamp.walk.on {
+  background: #22a447;
+  color: #ffffff;
+  box-shadow: 0 0 1rem #22a447;
+}
+
+#state-table tr.active {
+  background: #fff1c2;
+  font-weight: 700;
+}
+
+.log {
+  max-height: 16rem;
+  overflow-y: auto;
+  min-height: 3rem;
+}

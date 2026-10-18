@@ -1,0 +1,86 @@
+/*
+  WSU-COS 209 The Circuit-to-Cloud Workshop
+  Practical 3: Karnaugh maps  |  page styles for kmap-cards.html (box model + Flexbox)
+  (c) 2026 Wellspring University, Faculty of Computing. For registered WSU-COS 209 students.
+*/
+
+/* --- The K-map table --- */
+.kmap td {
+  font-family: var(--font-mono);
+  font-size: 1.2rem;
+  width: 3rem;
+}
+
+.kmap td.g1 {
+  background: #d7e6f5; /* blue group */
+}
+
+.kmap td.g2 {
+  background: #f8dcc8; /* orange group */
+}
+
+/* --- The cards: a Flexbox row that wraps --- */
+.cards {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;          /* children sit in a row ... */
+  flex-wrap: wrap;        /* ... and wrap when there is no room */
+  justify-content: flex-start;
+  gap: var(--space-3);
+}
+
+.kcard {
+  flex: 1 1 14rem;        /* grow, shrink, start at 14rem wide */
+  margin: 8px;            /* box model layer 4 (outside the border) */
+  border: 2px solid var(--c-border); /* layer 3 */
+  padding: 16px;          /* layer 2 (inside the border) */
+  border-radius: var(--radius);
+  background: var(--c-surface);
+}
+
+.kcard h3 {
+  margin-top: 0;
+}
+
+.g1-card {
+  border-color: #3a76b0;
+}
+
+.g2-card {
+  border-color: #c06a2b;
+}
+
+.result-card {
+  border-color: var(--c-ok);
+}
+
+/* --- The labelled box-model diagram --- */
+.box-demo {
+  max-width: 24rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+.layer {
+  padding: var(--space-2) var(--space-3);
+}
+
+.margin {
+  background: #f6e3c4;
+}
+
+.border {
+  background: #2f3b48;
+  color: #ffffff;
+}
+
+.padding {
+  background: #cfe3c9;
+  color: var(--c-text);
+}
+
+.content {
+  background: #c7dbef;
+  text-align: center;
+}

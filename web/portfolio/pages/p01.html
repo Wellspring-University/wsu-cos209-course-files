@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!--
+  WSU-COS 209 The Circuit-to-Cloud Workshop
+  Practical 1: Number systems  |  portfolio page with a live number converter
+  (c) 2026 Wellspring University, Faculty of Computing. For registered WSU-COS 209 students.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>Practical 1: Number systems | WSU-COS 209 Lab Portfolio</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="inner">
+      <a class="brand" href="../index.html">
+        [Your Name] &amp; [Partner Name]
+        <small>WSU-COS 209 Lab Portfolio</small>
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#practicals">Practicals</a></li>
+          <li><a href="../index.html#about">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <h1>Practical 1: Number systems</h1>
+    <p class="lead">
+      One byte, six ways of reading it. Type a number and compare the result with what
+      the <code>p01_dip_reader</code> sketch prints for the same DIP-switch setting.
+    </p>
+
+    <section aria-labelledby="converter-heading" class="card">
+      <h2 id="converter-heading">Number converter</h2>
+      <form id="converter" novalidate>
+        <label for="decimal">Decimal value (0 to 255)</label>
+        <input id="decimal" name="decimal" type="number" min="0" max="255" step="1"
+               inputmode="numeric" autocomplete="off" aria-describedby="decimal-hint decimal-error">
+        <p id="decimal-hint" class="hint">The results update as you type.</p>
+        <p id="decimal-error" class="error" aria-live="polite"></p>
+      </form>
+
+      <!-- Results: a description list (dl) pairs each name (dt) with its value (dd). -->
+      <dl class="results" aria-live="polite">
+        <div><dt>Binary (8 bits)</dt><dd id="out-bin">-</dd></div>
+        <div><dt>Hexadecimal</dt><dd id="out-hex">-</dd></div>
+        <div><dt>BCD (one nibble per digit)</dt><dd id="out-bcd">-</dd></div>
+        <div><dt>Gray code</dt><dd id="out-gray">-</dd></div>
+        <div><dt>Signed (two's complement, 8 bits)</dt><dd id="out-signed">-</dd></div>
+      </dl>
+    </section>
+
+    <section aria-labelledby="aim">
+      <h2 id="aim">Aim</h2>
+      <p>[What were you trying to find out or build?]</p>
+    </section>
+
+    <section aria-labelledby="results">
+      <h2 id="results">Results</h2>
+      <p>[Paste three lines from the Serial Monitor and check them against the converter.]</p>
+      <pre><samp>bin=00101101 hex=0x2D dec=45 signed=45 gray=00111011 bcd=2D(valid? no)</samp></pre>
+      <p class="hint">
+        Careful: the sketch asks "is this byte already a valid BCD pattern?" (0x2D is not, because
+        D is bigger than 9), while the converter above <em>encodes</em> 45 into BCD (0100 0101).
+      </p>
+    </section>
+
+    <section aria-labelledby="reflection">
+      <h2 id="reflection">Reflection</h2>
+      <p>[Why does 200 appear as -56 when read as a signed byte?]</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="inner">
+      <p>WSU-COS 209 The Circuit-to-Cloud Workshop &middot; Wellspring University, Faculty of Computing &middot; 2026</p>
+    </div>
+  </footer>
+
+  <script src="../js/p01-converter.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "cos209-node-server",
+  "version": "1.0.0",
+  "description": "WSU-COS 209 Practical 12: REST API and dashboard for ESP32 readings (node:http + node:sqlite, no dependencies)",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=22.13"
+  },
+  "license": "UNLICENSED"
+}

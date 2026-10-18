@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--
+  WSU-COS 209 The Circuit-to-Cloud Workshop
+  Practical 12: Cloud logger  |  dashboard page served by BOTH the Flask and the Node server
+  (c) 2026 Wellspring University, Faculty of Computing. For registered WSU-COS 209 students.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>COS 209 Cloud Logger</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="inner">
+      <h1>COS 209 Cloud Logger</h1>
+      <p class="sub">Readings posted by ESP32 boards to <code>/api/readings</code> &middot; server: <span id="server-name">?</span></p>
+    </div>
+  </header>
+
+  <main class="inner">
+    <section class="panel controls" aria-label="Choose a device">
+      <div>
+        <label for="device">Device</label>
+        <select id="device">
+          <option value="">All devices</option>
+        </select>
+      </div>
+      <div class="refresh">
+        <p>Auto-refresh every 5 s. Last updated: <strong id="updated">never</strong></p>
+        <p id="message" class="message" role="status"></p>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="devices-heading">
+      <h2 id="devices-heading">Devices</h2>
+      <div class="table-wrap">
+        <table>
+          <caption class="visually-hidden">Every device that has sent readings</caption>
+          <thead>
+            <tr><th scope="col">Device</th><th scope="col">Readings</th><th scope="col">Last seen (UTC)</th></tr>
+          </thead>
+          <tbody id="devices-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="chart-heading">
+      <h2 id="chart-heading">Light history <span id="chart-device" class="muted"></span></h2>
+      <canvas id="chart" width="900" height="280" role="img"
+              aria-label="Line chart of light readings over time, oldest on the left. The same values are listed in the table below."></canvas>
+      <p class="legend" aria-hidden="true">One line per device, light 0-4095 <span class="key-dot"></span> LED on</p>
+    </section>
+
+    <section class="panel" aria-labelledby="latest-heading">
+      <h2 id="latest-heading">Latest readings</h2>
+      <div class="table-wrap">
+        <table>
+          <caption class="visually-hidden">The 20 newest readings, newest first</caption>
+          <thead>
+            <tr><th scope="col">ID</th><th scope="col">Device</th><th scope="col">Light</th><th scope="col">LED</th><th scope="col">Time (UTC)</th></tr>
+          </thead>
+          <tbody id="readings-body"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="inner foot">
+    <p>WSU-COS 209 The Circuit-to-Cloud Workshop &middot; Wellspring University, Faculty of Computing</p>
+  </footer>
+
+  <script src="/static/dashboard.js"></script>
+</body>
+</html>

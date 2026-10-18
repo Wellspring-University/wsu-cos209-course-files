@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!--
+  WSU-COS 209 The Circuit-to-Cloud Workshop
+  Practical 7: Counters and registers  |  LED pattern editor for p07_shift_patterns
+  (c) 2026 Wellspring University, Faculty of Computing. For registered WSU-COS 209 students.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>Practical 7: LED pattern editor | WSU-COS 209</title>
+  <link rel="stylesheet" href="../portfolio/css/style.css">
+  <link rel="stylesheet" href="pattern-editor.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="inner">
+      <a class="brand" href="../portfolio/index.html">WSU-COS 209<small>Practical 7 example</small></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="../portfolio/index.html">Portfolio</a></li>
+          <li><a href="pattern-editor.html" aria-current="page">P7 Pattern editor</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <h1>Practical 7: LED pattern editor</h1>
+    <p class="lead">
+      Each column is one frame (one byte shifted into the 74HC595). Tick the LEDs that should be
+      on, then paste the command line into the Serial Monitor while <code>p07_shift_patterns</code> runs.
+    </p>
+
+    <div class="controls">
+      <div>
+        <label for="frames">Number of frames</label>
+        <select id="frames"></select>
+      </div>
+      <div>
+        <label for="preset">Start from a preset</label>
+        <select id="preset">
+          <option value="">(choose)</option>
+          <option value="knight">Knight rider (14 frames)</option>
+          <option value="count">Binary count 0 to 15</option>
+          <option value="fill">Fill up and empty</option>
+          <option value="clear">Clear all</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="grid-editor" id="editor">
+        <caption>LED grid: rows are 74HC595 outputs Q7 (top) to Q0 (bottom), columns are frames 0 to 15</caption>
+        <thead id="editor-head"></thead>
+        <tbody id="editor-body"></tbody>
+      </table>
+    </div>
+
+    <section class="card" aria-labelledby="cmd-heading">
+      <h2 id="cmd-heading">Serial command</h2>
+      <label for="command">Copy this line into the Serial Monitor (line ending: Newline)</label>
+      <input type="text" id="command" readonly>
+      <div class="btn-row">
+        <button type="button" class="btn" id="btn-copy">Copy command</button>
+        <button type="button" class="btn secondary" id="btn-play">Play animation</button>
+      </div>
+      <p id="copy-status" class="hint" aria-live="polite"></p>
+    </section>
+
+    <section aria-labelledby="preview-heading">
+      <h2 id="preview-heading">Preview (120 ms per frame, like the sketch)</h2>
+      <div class="preview" id="preview" aria-hidden="true"></div>
+      <p id="frame-text" class="frame-text" aria-live="off">frame 0: 00000000</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="inner">
+      <p>WSU-COS 209 The Circuit-to-Cloud Workshop &middot; Wellspring University, Faculty of Computing &middot; 2026</p>
+    </div>
+  </footer>
+
+  <script src="js/pattern-editor.js"></script>
+</body>
+</html>

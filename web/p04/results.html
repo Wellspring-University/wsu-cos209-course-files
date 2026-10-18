@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--
+  WSU-COS 209 The Circuit-to-Cloud Workshop
+  Practical 4: Adders and comparators  |  JSON + fetch example: show test results in a table
+  (c) 2026 Wellspring University, Faculty of Computing. For registered WSU-COS 209 students.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>Practical 4: Test results | WSU-COS 209</title>
+  <link rel="stylesheet" href="../portfolio/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="inner">
+      <a class="brand" href="../portfolio/index.html">WSU-COS 209<small>Practical 4 example</small></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="../portfolio/index.html">Portfolio</a></li>
+          <li><a href="results.html" aria-current="page">P4 Results</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <h1>Practical 4: Class test results</h1>
+    <p class="lead">
+      Each bench pasted the JSON summary line printed by <code>p04_adder_test</code> or
+      <code>p04_comparator_test</code> into <code>adder_results.json</code>. This page loads
+      that file with <code>fetch()</code> and builds the table below.
+    </p>
+
+    <p id="status" aria-live="polite">Loading adder_results.json&hellip;</p>
+
+    <div class="table-wrap">
+      <table id="results-table" hidden>
+        <caption>Exhaustive chip tests by bench</caption>
+        <thead>
+          <tr>
+            <th scope="col">Bench</th>
+            <th scope="col">Chip</th>
+            <th scope="col">Cases tested</th>
+            <th scope="col">Failed</th>
+            <th scope="col">Verdict</th>
+            <th scope="col">Note</th>
+          </tr>
+        </thead>
+        <tbody id="results-body"></tbody>
+      </table>
+    </div>
+
+    <div class="note warn">
+      <h2>Why does this page not work when I double-click it?</h2>
+      <p>
+        If you open the file directly, the address bar starts with <code>file://</code>. For security,
+        browsers do not let a page loaded from <code>file://</code> use <code>fetch()</code> to read
+        other files on your disk (otherwise any downloaded web page could read your documents).
+      </p>
+      <p>
+        Serve the folder over HTTP instead. From the repository root run
+        <code>python tools/serve.py web</code> and open
+        <code>http://127.0.0.1:8000/p04/results.html</code>.
+      </p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="inner">
+      <p>WSU-COS 209 The Circuit-to-Cloud Workshop &middot; Wellspring University, Faculty of Computing &middot; 2026</p>
+    </div>
+  </footer>
+
+  <script src="js/results.js"></script>
+</body>
+</html>

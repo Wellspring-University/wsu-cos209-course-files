@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!--
+  WSU-COS 209 The Circuit-to-Cloud Workshop
+  Practical 8: State machines  |  pedestrian-crossing FSM simulated in the browser
+  (c) 2026 Wellspring University, Faculty of Computing. For registered WSU-COS 209 students.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>Practical 8: Traffic light FSM | WSU-COS 209</title>
+  <link rel="stylesheet" href="../portfolio/css/style.css">
+  <link rel="stylesheet" href="fsm.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="inner">
+      <a class="brand" href="../portfolio/index.html">WSU-COS 209<small>Practical 8 example</small></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="../portfolio/index.html">Portfolio</a></li>
+          <li><a href="fsm.html" aria-current="page">P8 Traffic FSM</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <h1>Practical 8: Pedestrian crossing state machine</h1>
+    <p class="lead">
+      The same four states, the same times and the same log lines as <code>p08_traffic_fsm</code>
+      on the Uno. Run both side by side and press the button on each at the same moment.
+    </p>
+
+    <div class="fsm-layout">
+      <section class="card" aria-labelledby="lights-heading">
+        <h2 id="lights-heading">Lights</h2>
+        <div class="lights">
+          <div class="signal" aria-hidden="true">
+            <span class="lamp red" id="lamp-red"></span>
+            <span class="lamp amber" id="lamp-amber"></span>
+            <span class="lamp green" id="lamp-green"></span>
+          </div>
+          <div class="signal walk-signal" aria-hidden="true">
+            <span class="lamp dont" id="lamp-dont">DON'T<br>WALK</span>
+            <span class="lamp walk" id="lamp-walk">WALK</span>
+          </div>
+        </div>
+        <p>State: <strong id="state-name" aria-live="polite">GREEN</strong></p>
+        <p class="hint" id="state-info"></p>
+        <div class="btn-row">
+          <button type="button" class="btn" id="btn-request">Press crossing button (r)</button>
+        </div>
+        <p>Request latched: <strong id="request-flag">no</strong></p>
+      </section>
+
+      <section class="card" aria-labelledby="table-heading">
+        <h2 id="table-heading">State table</h2>
+        <div class="table-wrap">
+          <table>
+            <caption>Each state, its outputs and when it ends</caption>
+            <thead>
+              <tr><th scope="col">State</th><th scope="col">Traffic</th><th scope="col">Pedestrian</th><th scope="col">Leaves after</th><th scope="col">Next</th></tr>
+            </thead>
+            <tbody id="state-table"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <section aria-labelledby="log-heading">
+      <h2 id="log-heading">Transition log</h2>
+      <pre id="log" class="log" tabindex="0"></pre>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="inner">
+      <p>WSU-COS 209 The Circuit-to-Cloud Workshop &middot; Wellspring University, Faculty of Computing &middot; 2026</p>
+    </div>
+  </footer>
+
+  <script src="js/fsm.js"></script>
+</body>
+</html>

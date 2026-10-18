@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!--
+  WSU-COS 209 The Circuit-to-Cloud Workshop
+  Practical 2: Logic gates  |  example page: accessible truth tables with semantic HTML
+  (c) 2026 Wellspring University, Faculty of Computing. For registered WSU-COS 209 students.
+
+  Things to notice:
+    * <caption> gives the table a title that screen readers announce.
+    * <th scope="col"> marks column headings, <th scope="row"> marks the row heading
+      (the inputs), so a screen reader can say "A 1, B 0, AND 0".
+    * No styling is done with <table>: it is used only for real tabular data.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>Practical 2: Truth tables | WSU-COS 209</title>
+  <link rel="stylesheet" href="../portfolio/css/style.css">
+  <style>
+    /* Page-specific rules: highlight 1s so patterns are easy to see. */
+    td.one {
+      background: #e3efe6;
+      font-weight: 700;
+    }
+    th[scope="row"] {
+      font-family: var(--font-mono);
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="inner">
+      <a class="brand" href="../portfolio/index.html">WSU-COS 209<small>Practical 2 example</small></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="../portfolio/index.html">Portfolio</a></li>
+          <li><a href="truth-tables.html" aria-current="page">P2 Truth tables</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <h1>Practical 2: Truth tables</h1>
+    <p class="lead">
+      The four 2-input gates we test with <code>p02_gate_tester</code>. Every row lists the
+      inputs A and B and what each chip's output Y should be.
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <caption>Table 1. Expected outputs of the 74HC00, 74HC08, 74HC32 and 74HC86 (1 = HIGH, 0 = LOW)</caption>
+        <thead>
+          <tr>
+            <th scope="col">A B</th>
+            <th scope="col">NAND <span class="tag">74HC00</span></th>
+            <th scope="col">AND <span class="tag">74HC08</span></th>
+            <th scope="col">OR <span class="tag">74HC32</span></th>
+            <th scope="col">XOR <span class="tag">74HC86</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">0 0</th><td class="one">1</td><td>0</td><td>0</td><td>0</td></tr>
+          <tr><th scope="row">0 1</th><td class="one">1</td><td>0</td><td class="one">1</td><td class="one">1</td></tr>
+          <tr><th scope="row">1 0</th><td class="one">1</td><td>0</td><td class="one">1</td><td class="one">1</td></tr>
+          <tr><th scope="row">1 1</th><td>0</td><td class="one">1</td><td class="one">1</td><td>0</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Our measured results</h2>
+    <p>Copy the table from the Serial Monitor. The <code>OK</code> column must be all OK.</p>
+    <div class="table-wrap">
+      <table>
+        <caption>Table 2. Measured output of one 74HC86 gate (gate 1: pins 1, 2 in, pin 3 out)</caption>
+        <thead>
+          <tr>
+            <th scope="col">A</th>
+            <th scope="col">B</th>
+            <th scope="col">Y measured</th>
+            <th scope="col">Y expected</th>
+            <th scope="col">Check</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>0</td><td>0</td><td>0</td><td>0</td><td class="ok">OK</td></tr>
+          <tr><td>0</td><td>1</td><td>1</td><td>1</td><td class="ok">OK</td></tr>
+          <tr><td>1</td><td>0</td><td>1</td><td>1</td><td class="ok">OK</td></tr>
+          <tr><td>1</td><td>1</td><td>0</td><td>0</td><td class="ok">OK</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <p><strong>Your turn:</strong> add a third table for a 3-input XOR (odd parity) built from two
+      74HC86 gates. It has 8 rows. Remember the <code>&lt;caption&gt;</code> and the <code>scope</code> attributes.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="inner">
+      <p>WSU-COS 209 The Circuit-to-Cloud Workshop &middot; Wellspring University, Faculty of Computing &middot; 2026</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,8 @@
+[
+  {"bench": "B01", "chip": "74HC283", "tested": 512, "failed": 0, "date": "2026-02-16"},
+  {"bench": "B02", "chip": "74HC283", "tested": 512, "failed": 0, "date": "2026-02-16"},
+  {"bench": "B03", "chip": "74HC283", "tested": 512, "failed": 256, "date": "2026-02-16", "note": "Cin wire missing"},
+  {"bench": "B01", "chip": "74HC85", "tested": 256, "failed": 0, "date": "2026-02-16"},
+  {"bench": "B04", "chip": "74HC85", "tested": 256, "failed": 128, "date": "2026-02-17", "note": "A3 and B3 swapped"},
+  {"bench": "B05", "chip": "74HC283", "tested": 512, "failed": 0, "date": "2026-02-17"}
+]

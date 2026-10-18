@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!--
+  WSU-COS 209 The Circuit-to-Cloud Workshop
+  Practical 5: Decoders and displays  |  responsive CSS Grid gallery of 7-segment digits
+  (c) 2026 Wellspring University, Faculty of Computing. For registered WSU-COS 209 students.
+
+  Each digit is a box with seven <span> segments (a to g). A segment with the class "on"
+  is lit. This is exactly the SEG[] table used by p05_bcd_counter in ROM look-up mode.
+  Try it: resize the window (or use the DevTools phone view) and watch the grid change
+  from 2 columns, to 5 columns at 600px, to 10 columns at 900px.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>Practical 5: 7-segment gallery | WSU-COS 209</title>
+  <link rel="stylesheet" href="../portfolio/css/style.css">
+  <link rel="stylesheet" href="seven-segment.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="inner">
+      <a class="brand" href="../portfolio/index.html">WSU-COS 209<small>Practical 5 example</small></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="../portfolio/index.html">Portfolio</a></li>
+          <li><a href="seven-segment.html" aria-current="page">P5 Digit gallery</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <h1>Practical 5: 7-segment digit gallery</h1>
+    <p class="lead">
+      What the 74HC4511 decoder does in hardware, drawn in CSS. Each card lists the
+      segments that light for that digit on a common-cathode display.
+    </p>
+
+    <figure class="legend">
+      <div class="digit big" role="img" aria-label="Segment names: a at the top, then b, c clockwise down the right, d at the bottom, e and f up the left, g in the middle"><span class="seg a on"><b>a</b></span><span class="seg b on"><b>b</b></span><span class="seg c on"><b>c</b></span><span class="seg d on"><b>d</b></span><span class="seg e on"><b>e</b></span><span class="seg f on"><b>f</b></span><span class="seg g on"><b>g</b></span></div>
+      <figcaption>Segment names a to g</figcaption>
+    </figure>
+
+    <section aria-labelledby="gallery-heading">
+      <h2 id="gallery-heading">Digits 0 to 9</h2>
+      <ul class="gallery">
+        <li>
+          <figure>
+            <div class="digit" role="img" aria-label="Digit 0 on a 7-segment display"><span class="seg a on"></span><span class="seg b on"></span><span class="seg c on"></span><span class="seg d on"></span><span class="seg e on"></span><span class="seg f on"></span><span class="seg g"></span></div>
+            <figcaption><strong>0</strong> <code>a b c d e f</code><br><span class="hint">gfedcba = 0111111</span></figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure>
+            <div class="digit" role="img" aria-label="Digit 1 on a 7-segment display"><span class="seg a"></span><span class="seg b on"></span><span class="seg c on"></span><span class="seg d"></span><span class="seg e"></span><span class="seg f"></span><span class="seg g"></span></div>
+            <figcaption><strong>1</strong> <code>b c</code><br><span class="hint">gfedcba = 0000110</span></figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure>
+            <div class="digit" role="img" aria-label="Digit 2 on a 7-segment display"><span class="seg a on"></span><span class="seg b on"></span><span class="seg c"></span><span class="seg d on"></span><span class="seg e on"></span><span class="seg f"></span><span class="seg g on"></span></div>
+            <figcaption><strong>2</strong> <code>a b d e g</code><br><span class="hint">gfedcba = 1011011</span></figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure>
+            <div class="digit" role="img" aria-label="Digit 3 on a 7-segment display"><span class="seg a on"></span><span class="seg b on"></span><span class="seg c on"></span><span class="seg d on"></span><span class="seg e"></span><span class="seg f"></span><span class="seg g on"></span></div>
+            <figcaption><strong>3</strong> <code>a b c d g</code><br><span class="hint">gfedcba = 1001111</span></figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure>
+            <div class="digit" role="img" aria-label="Digit 4 on a 7-segment display"><span class="seg a"></span><span class="seg b on"></span><span class="seg c on"></span><span class="seg d"></span><span class="seg e"></span><span class="seg f on"></span><span class="seg g on"></span></div>
+            <figcaption><strong>4</strong> <code>b c f g</code><br><span class="hint">gfedcba = 1100110</span></figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure>
+            <div class="digit" role="img" aria-label="Digit 5 on a 7-segment display"><span class="seg a on"></span><span class="seg b"></span><span class="seg c on"></span><span class="seg d on"></span><span class="seg e"></span><span class="seg f on"></span><span class="seg g on"></span></div>
+            <figcaption><strong>5</strong> <code>a c d f g</code><br><span class="hint">gfedcba = 1101101</span></figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure>
+            <div class="digit" role="img" aria-label="Digit 6 on a 7-segment display"><span class="seg a on"></span><span class="seg b"></span><span class="seg c on"></span><span class="seg d on"></span><span class="seg e on"></span><span class="seg f on"></span><span class="seg g on"></span></div>
+            <figcaption><strong>6</strong> <code>a c d e f g</code><br><span class="hint">gfedcba = 1111101</span></figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure>
+            <div class="digit" role="img" aria-label="Digit 7 on a 7-segment display"><span class="seg a on"></span><span class="seg b on"></span><span class="seg c on"></span><span class="seg d"></span><span class="seg e"></span><span class="seg f"></span><span class="seg g"></span></div>
+            <figcaption><strong>7</strong> <code>a b c</code><br><span class="hint">gfedcba = 0000111</span></figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure>
+            <div class="digit" role="img" aria-label="Digit 8 on a 7-segment display"><span class="seg a on"></span><span class="seg b on"></span><span class="seg c on"></span><span class="seg d on"></span><span class="seg e on"></span><span class="seg f on"></span><span class="seg g on"></span></div>
+            <figcaption><strong>8</strong> <code>a b c d e f g</code><br><span class="hint">gfedcba = 1111111</span></figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure>
+            <div class="digit" role="img" aria-label="Digit 9 on a 7-segment display"><span class="seg a on"></span><span class="seg b on"></span><span class="seg c on"></span><span class="seg d on"></span><span class="seg e"></span><span class="seg f on"></span><span class="seg g on"></span></div>
+            <figcaption><strong>9</strong> <code>a b c d f g</code><br><span class="hint">gfedcba = 1101111</span></figcaption>
+          </figure>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="inner">
+      <p>WSU-COS 209 The Circuit-to-Cloud Workshop &middot; Wellspring University, Faculty of Computing &middot; 2026</p>
+    </div>
+  </footer>
+</body>
+</html>

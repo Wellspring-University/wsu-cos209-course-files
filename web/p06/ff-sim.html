@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!--
+  WSU-COS 209 The Circuit-to-Cloud Workshop
+  Practical 6: Latches and flip-flops  |  interactive D flip-flop simulator
+  (c) 2026 Wellspring University, Faculty of Computing. For registered WSU-COS 209 students.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>Practical 6: D flip-flop simulator | WSU-COS 209</title>
+  <link rel="stylesheet" href="../portfolio/css/style.css">
+  <link rel="stylesheet" href="ff-sim.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="inner">
+      <a class="brand" href="../portfolio/index.html">WSU-COS 209<small>Practical 6 example</small></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="../portfolio/index.html">Portfolio</a></li>
+          <li><a href="ff-sim.html" aria-current="page">P6 Flip-flop simulator</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <h1>Practical 6: D flip-flop simulator</h1>
+    <p class="lead">
+      A model of one 74HC74 flip-flop. Q copies D <strong>only</strong> at the moment CLK goes
+      from 0 to 1 (the rising edge). Try changing D while CLK is high: nothing happens to Q.
+    </p>
+
+    <div class="sim">
+      <section class="card" aria-labelledby="inputs-heading">
+        <h2 id="inputs-heading">Inputs</h2>
+        <div class="btn-row">
+          <button type="button" class="btn" id="btn-d" aria-pressed="false">D = 0</button>
+          <button type="button" class="btn" id="btn-clk" aria-pressed="false">CLK = 0</button>
+          <button type="button" class="btn secondary" id="btn-pulse">Clock pulse (0 &rarr; 1 &rarr; 0)</button>
+          <button type="button" class="btn secondary" id="btn-reset">Reset</button>
+        </div>
+        <p class="hint">Keyboard: press <kbd>d</kbd> to toggle D and <kbd>c</kbd> to toggle CLK.</p>
+      </section>
+
+      <section class="card" aria-labelledby="outputs-heading">
+        <h2 id="outputs-heading">Outputs</h2>
+        <div class="leds">
+          <div class="led-box">
+            <span class="led" id="led-q" aria-hidden="true"></span>
+            <span>Q = <strong id="out-q">0</strong></span>
+          </div>
+          <div class="led-box">
+            <span class="led" id="led-nq" aria-hidden="true"></span>
+            <span>/Q = <strong id="out-nq">1</strong></span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section aria-labelledby="timing-heading">
+      <h2 id="timing-heading">Timing diagram</h2>
+      <canvas id="timing" width="720" height="200"
+              aria-label="Timing diagram of D, CLK and Q for the last 24 steps. The event log below lists the same information as text."
+              role="img"></canvas>
+    </section>
+
+    <section aria-labelledby="log-heading">
+      <h2 id="log-heading">Event log</h2>
+      <pre id="log" class="log" aria-live="polite" tabindex="0"></pre>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="inner">
+      <p>WSU-COS 209 The Circuit-to-Cloud Workshop &middot; Wellspring University, Faculty of Computing &middot; 2026</p>
+    </div>
+  </footer>
+
+  <script src="js/ff-sim.js"></script>
+</body>
+</html>

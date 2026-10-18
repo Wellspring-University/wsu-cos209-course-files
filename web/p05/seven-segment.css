@@ -1,0 +1,113 @@
+/*
+  WSU-COS 209 The Circuit-to-Cloud Workshop
+  Practical 5: Decoders and displays  |  CSS Grid gallery + CSS-drawn 7-segment digits
+  (c) 2026 Wellspring University, Faculty of Computing. For registered WSU-COS 209 students.
+*/
+
+/* --- The gallery: CSS Grid, mobile-first --- */
+.gallery {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* phones: 2 columns */
+  gap: var(--space-3);
+}
+
+@media (min-width: 600px) {
+  .gallery {
+    grid-template-columns: repeat(5, 1fr); /* tablets: 5 columns */
+  }
+}
+
+@media (min-width: 900px) {
+  .gallery {
+    grid-template-columns: repeat(10, 1fr); /* desktops: all 10 in one row */
+  }
+}
+
+.gallery figure,
+.legend {
+  margin: 0;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius);
+  padding: var(--space-3) var(--space-2);
+  text-align: center;
+}
+
+.legend {
+  max-width: 12rem;
+  margin-bottom: var(--space-4);
+}
+
+figcaption {
+  margin-top: var(--space-2);
+  font-size: 0.9rem;
+}
+
+/* --- One digit: a 3em x 5em box; segments are positioned inside it --- */
+.digit {
+  position: relative;
+  width: 3em;
+  height: 5em;
+  margin: 0 auto;
+  background: #1b1f24;
+  border-radius: 0.3em;
+  box-sizing: content-box;
+  padding: 0.4em;
+}
+
+.digit.big {
+  font-size: 1.6rem;
+}
+
+.seg {
+  position: absolute;
+  background: #3a2a2a;   /* unlit segment: dark red */
+  border-radius: 0.15em;
+}
+
+.seg.on {
+  background: var(--c-led-on);
+  box-shadow: 0 0 0.3em var(--c-led-on);
+}
+
+/* Horizontal segments a, g, d */
+.a,
+.g,
+.d {
+  left: 0.75em;
+  width: 2.3em;
+  height: 0.4em;
+}
+
+.a { top: 0.4em; }
+.g { top: 2.7em; }
+.d { top: 5em; }
+
+/* Vertical segments f, b (top half) and e, c (bottom half) */
+.b,
+.c,
+.e,
+.f {
+  width: 0.4em;
+  height: 1.95em;
+}
+
+.f { left: 0.4em; top: 0.75em; }
+.b { left: 3.05em; top: 0.75em; }
+.e { left: 0.4em; top: 3.05em; }
+.c { left: 3.05em; top: 3.05em; }
+
+/* Segment letters in the legend */
+.seg b {
+  position: absolute;
+  inset: 0;
+  font-size: 0.5em;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}

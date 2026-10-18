@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!--
+  WSU-COS 209 The Circuit-to-Cloud Workshop
+  Practical 9: Sensors and Web Serial  |  browser dashboard for the p09_sensor_stream sketch
+  (c) 2026 Wellspring University, Faculty of Computing. For registered WSU-COS 209 students.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>Practical 9: Web Serial dashboard | WSU-COS 209</title>
+  <link rel="stylesheet" href="../portfolio/css/style.css">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="inner">
+      <a class="brand" href="../portfolio/index.html">WSU-COS 209<small>Practical 9 example</small></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="../portfolio/index.html">Portfolio</a></li>
+          <li><a href="dashboard.html" aria-current="page">P9 Serial dashboard</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <h1>Practical 9: Light sensor dashboard</h1>
+    <p class="lead">
+      The Uno sends one JSON line every 500 ms over USB. This page reads those lines with the
+      Web Serial API, draws them, and can send <code>L1</code> / <code>L0</code> back to switch the LED.
+    </p>
+
+    <!-- Filled in by checkSupport() in serial-dashboard.js when Web Serial cannot be used. -->
+    <div id="support" class="note warn" role="alert" hidden></div>
+
+    <section class="card" aria-labelledby="conn-heading">
+      <h2 id="conn-heading">Connection</h2>
+      <div class="btn-row">
+        <button type="button" class="btn" id="btn-connect">Connect to Uno</button>
+        <button type="button" class="btn secondary" id="btn-disconnect" disabled>Disconnect</button>
+      </div>
+      <p>Status: <strong id="status" aria-live="polite">not connected</strong></p>
+      <p class="hint">Close the Arduino IDE Serial Monitor first: only one program can use the port at a time.</p>
+    </section>
+
+    <div class="readings">
+      <section class="card stat" aria-labelledby="light-heading">
+        <h2 id="light-heading">Light</h2>
+        <p class="big" id="light-value">-</p>
+        <!-- A meter element is announced by screen readers as a gauge. -->
+        <meter id="light-meter" min="0" max="1023" value="0" aria-labelledby="light-heading"></meter>
+        <p class="hint">analogRead(A0), 0 = dark, 1023 = bright</p>
+      </section>
+      <section class="card stat" aria-labelledby="button-heading">
+        <h2 id="button-heading">Button presses</h2>
+        <p class="big" id="count-value">-</p>
+        <p>Button now: <strong id="button-value">-</strong></p>
+      </section>
+      <section class="card stat" aria-labelledby="led-heading">
+        <h2 id="led-heading">LED on D7</h2>
+        <div class="btn-row">
+          <button type="button" class="btn" id="btn-led-on" disabled>LED on</button>
+          <button type="button" class="btn secondary" id="btn-led-off" disabled>LED off</button>
+        </div>
+        <p>Last reply: <strong id="ack-value">-</strong></p>
+      </section>
+    </div>
+
+    <section aria-labelledby="chart-heading">
+      <h2 id="chart-heading">Light, last 120 readings (one minute)</h2>
+      <canvas id="chart" width="800" height="260" role="img"
+              aria-label="Line chart of the last 120 light readings. The current value is shown in the Light box above."></canvas>
+    </section>
+
+    <section aria-labelledby="raw-heading">
+      <h2 id="raw-heading">Raw lines</h2>
+      <pre id="raw" class="raw" tabindex="0"></pre>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="inner">
+      <p>WSU-COS 209 The Circuit-to-Cloud Workshop &middot; Wellspring University, Faculty of Computing &middot; 2026</p>
+    </div>
+  </footer>
+
+  <script src="js/serial-dashboard.js"></script>
+</body>
+</html>
