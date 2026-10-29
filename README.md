@@ -37,4 +37,4 @@ python tools/check_setup.py        # must end with ALL CHECKS PASSED
 
 ## Copyright
 
-Copyright © 2026 O. Adeyeye and [ENTER IFT 203 CO-AUTHOR]. All rights reserved. Registered WSU-COS 209 students may use these files for their course work. See `NOTICE.txt`.
+Copyright © 2026 A. S. Olayinka, L. Amayanvbo and O. Adeyeye. All rights reserved. Registered WSU-COS 209 students may use these files for their course work. See `NOTICE.txt`.

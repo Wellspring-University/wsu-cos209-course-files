@@ -1,4 +1,4 @@
-Copyright (c) 2026 O. Adeyeye and [ENTER IFT 203 CO-AUTHOR]. All rights reserved.
+Copyright (c) 2026 A. S. Olayinka, L. Amayanvbo and O. Adeyeye. All rights reserved.
 
 The authors retain the copyright in the WSU-COS 209 Practical Manual and in everything in this
 repository, including text, figures, web pages and code. No part of it may be reproduced, adapted,
@@ -9,7 +9,7 @@ published or redistributed without the prior written permission of the authors, 
   - Instructors teaching WSU-COS 209 at Wellspring University may use and reproduce them for
     that course.
 
-Permissions: [ENTER CONTACT FOR PERMISSIONS]
+Permissions: solayinkaa@gmail.com
 
 AI usage declaration: Claude (Anthropic) was used to assist with drafting code, tests and text.
 The authors direct this work and are responsible for reviewing, testing and editing all
